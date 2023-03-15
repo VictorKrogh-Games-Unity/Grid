@@ -1,7 +1,7 @@
 ﻿using TMPro;
 using UnityEngine;
 
-namespace VictorKrogh.Games.CircuitDefender.Grid.Debugger
+namespace VictorKrogh.Games.Grid.Debugger
 {
 
     internal class GridXZDebugger : MonoBehaviour, IGridDebugger

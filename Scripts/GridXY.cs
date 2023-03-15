@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace VictorKrogh.Games.CircuitDefender.Grid
+namespace VictorKrogh.Games.Grid
 {
     internal class GridXY<TGridItem> : GridBase<TGridItem>
     {

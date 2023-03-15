@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace VictorKrogh.Games.CircuitDefender.Grid
+namespace VictorKrogh.Games.Grid
 {
     public interface IGrid
     {
