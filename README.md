@@ -1,6 +1,10 @@
 # Grid
 Grid system for XY and XZ - with editor visuals
 
+## Install
+Either add the repository as a submodule, using the following command `git submodule add https://github.com/VictorKrogh-Games-Unity/Grid.git Assets/VictorKrogh.Games`
+Or by downloading the [Unity Package here](https://github.com/VictorKrogh-Games-Unity/Grid/releases/tag/1.0).
+
 ## How to use GridXY
 Example code:
 ```csharp
