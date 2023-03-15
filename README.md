@@ -26,3 +26,28 @@ public class GridXYTest : MonoBehaviour
 }
 
 ```
+
+## How to use GridXZ
+Example code:
+```csharp
+using UnityEngine;
+using VictorKrogh.Games.Grid;
+using VictorKrogh.Games.Grid.Debugger;
+
+public class GridXZTest : MonoBehaviour
+{
+    [SerializeField] private int m_Width = 10;
+    [SerializeField] private int m_Height = 10;
+    [SerializeField] private float m_CellSize = 5.0f;
+    [SerializeField] private Vector3 m_Origin = new Vector3(0.0f, 0.0f, 0.0f);
+
+    private GridXZ<int> m_Grid;
+    private IGridDebugger m_GridDebugger;
+
+    private void Start()
+    {
+        m_GridDebugger = GetComponent<IGridDebugger>();
+        m_Grid = new GridXZ<int>(m_Width, m_Height, m_CellSize, m_Origin, m_GridDebugger);
+    }
+}
+```
