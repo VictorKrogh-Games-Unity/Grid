@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using VictorKrogh.Games.Grid.Debugger;
 
 namespace VictorKrogh.Games.Grid
 {
