@@ -20,15 +20,17 @@ namespace VictorKrogh.Games.Grid.Debugger
                 for (int z = 0; z < grid.Height; z++)
                 {
                     var arrayIndex = GetArrayIndexByCoord(x, z);
-                    var worldPositionXZ = GetGridWorldPositionXY(x, z);
+                    var worldPositionXZ = GetGridWorldPositionXZ(x, z);
 
-                    m_DebugTextArray[arrayIndex] = Utils.CreateWorldText($"{grid.GetValue(x, z)}", 20, transform, worldPositionXZ + new Vector3(grid.CellSize, grid.CellSize) * 0.5f);
-                    Debug.DrawLine(worldPositionXZ, GetGridWorldPositionXY(x, z + 1), Color.white, s_DebugDrawLineDuration);
-                    Debug.DrawLine(worldPositionXZ, GetGridWorldPositionXY(x + 1, z), Color.white, s_DebugDrawLineDuration);
+                    m_DebugTextArray[arrayIndex] = Utils.CreateWorldText($"{grid.GetValue(x, z)}", 20, transform, worldPositionXZ + new Vector3(grid.CellSize, 0.0f, grid.CellSize) * 0.5f);
+                    m_DebugTextArray[arrayIndex].transform.rotation = Quaternion.Euler(90, 0, 0);
+
+                    Debug.DrawLine(worldPositionXZ, GetGridWorldPositionXZ(x, z + 1), Color.white, s_DebugDrawLineDuration);
+                    Debug.DrawLine(worldPositionXZ, GetGridWorldPositionXZ(x + 1, z), Color.white, s_DebugDrawLineDuration);
                 }
             }
-            Debug.DrawLine(GetGridWorldPositionXY(0, grid.Height), GetGridWorldPositionXY(grid.Width, grid.Height), Color.white, s_DebugDrawLineDuration);
-            Debug.DrawLine(GetGridWorldPositionXY(grid.Width, 0), GetGridWorldPositionXY(grid.Width, grid.Height), Color.white, s_DebugDrawLineDuration);
+            Debug.DrawLine(GetGridWorldPositionXZ(0, grid.Height), GetGridWorldPositionXZ(grid.Width, grid.Height), Color.white, s_DebugDrawLineDuration);
+            Debug.DrawLine(GetGridWorldPositionXZ(grid.Width, 0), GetGridWorldPositionXZ(grid.Width, grid.Height), Color.white, s_DebugDrawLineDuration);
         }
 
         public void UpdateText(int x, int z, string text)
@@ -45,7 +47,7 @@ namespace VictorKrogh.Games.Grid.Debugger
             return z * m_Grid.Width + x;
         }
 
-        private Vector3 GetGridWorldPositionXY(int x, int z)
+        private Vector3 GetGridWorldPositionXZ(int x, int z)
         {
             return new Vector3(x, 0.0f, z) * m_Grid.CellSize + m_Grid.OriginPosition;
         }
